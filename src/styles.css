@@ -1,8 +1,14 @@
 /* src/styles.css */
-/* body {
+body {
     background-image: url('https://images.pexels.com/photos/56866/garden-rose-red-pink-56866.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
-    background-repeat: repeat-y;
-    background-position: left, right;
-    background-size: contain;
-  }
-   */
+}
+  
+
+   * {
+    text-align: center;
+    /* girly font */
+    font-family: 'Dancing Script', cursive;
+    color: whitesmoke;
+    /* make images fit to width */
+    max-width: 100%;
+   }

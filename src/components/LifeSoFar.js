@@ -2,6 +2,7 @@
 import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import DisplayFiles from './DisplayFiles';
+import FileUpload from './FileUpload';
 
 const LifeSoFar = () => (
   <Container>
@@ -9,6 +10,7 @@ const LifeSoFar = () => (
     <Row>
       <Col>
         <DisplayFiles />
+        <FileUpload />
       </Col>
     </Row>
   </Container>

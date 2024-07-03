@@ -1,14 +1,14 @@
 // src/components/Home.js
 import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
-import FileUpload from './FileUpload';
+import familyPicture from '../assets/bradley_family.png'
 
 const Home = () => (
     <Container>
         <Row>
             <Col>
                 <h1>Happy 60th Brenda!</h1>
-                <FileUpload />
+                <img src={familyPicture} alt="Family" />
             </Col>
         </Row>
     </Container>
