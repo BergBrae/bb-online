@@ -5,7 +5,6 @@ import Header from './components/Header';
 import Home from './components/Home';
 import LifeSoFar from './components/LifeSoFar';
 import WordsOfEncouragement from './components/WordsOfEncouragement';
-import Game from './components/Game';
 import ParallaxLayer from './components/ParallaxLayer';
 
 function App() {
@@ -21,7 +20,7 @@ function App() {
     <Router>
       <div>
         <ParallaxProvider>
-          <div style={{ position: 'relative', height: '200vh' }}>
+          <div style={{ position: 'relative'}}>
             {backgroundImage && (
               <ParallaxLayer
                 src={backgroundImage}
@@ -44,7 +43,6 @@ function App() {
                 <Route path="/" element={<Home />} />
                 <Route path="/life-so-far" element={<LifeSoFar />} />
                 <Route path="/words-of-encouragement" element={<WordsOfEncouragement />} />
-                <Route path="/game" element={<Game />} />
               </Routes>
             </div>
           </div>

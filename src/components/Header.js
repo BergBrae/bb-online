@@ -18,9 +18,6 @@ const Header = () => (
         <LinkContainer to="/words-of-encouragement">
           <Nav.Link>Words of Encouragement</Nav.Link>
         </LinkContainer>
-        <LinkContainer to="/game">
-          <Nav.Link>Game</Nav.Link>
-        </LinkContainer>
       </Nav>
     </Navbar.Collapse>
   </Navbar>
