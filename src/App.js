@@ -7,49 +7,48 @@ import LifeSoFar from './components/LifeSoFar';
 import WordsOfEncouragement from './components/WordsOfEncouragement';
 import Game from './components/Game';
 import ParallaxLayer from './components/ParallaxLayer';
-import { getRandomIcons, getRandomPosition } from './utils';
 
 function App() {
-  const [selectedIcons, setSelectedIcons] = useState([]);
+  const [backgroundImage, setBackgroundImage] = useState(null);
 
   useEffect(() => {
-    const importAll = (r) => r.keys().map(r);
-    const allIcons = importAll(require.context('./assets/icons', false, /\.(png|jpe?g|svg)$/));
-
-    const iconsWithSpeed = allIcons.map((icon, index) => ({
-      src: icon,
-      speed: (index % 5) * 2 - 4 // Assign a speed based on index for variety
-    }));
-
-    const randomIcons = getRandomIcons(iconsWithSpeed, 60); // Select 5 random icons
-    setSelectedIcons(randomIcons);
+    // Assuming the background image is located in the assets folder
+    const background = require('./assets/background-tall.png');
+    setBackgroundImage(background);
   }, []);
 
   return (
     <Router>
       <div>
-        <Header />
         <ParallaxProvider>
-          <div style={{ height: '200vh', position: 'relative' }}>
-            {selectedIcons.map((icon, index) => (
+          <div style={{ position: 'relative', height: '200vh' }}>
+            {backgroundImage && (
               <ParallaxLayer
-                key={index}
-                src={icon.src}
-                speed={icon.speed}
+                src={backgroundImage}
+                speed={-10} // Negative value to scroll slower
                 style={{
                   position: 'absolute',
-                  ...getRandomPosition()
+                  width: '100%',
+                  height: '100%',
+                  top: 0,
+                  left: 0,
+                  zIndex: 1,
                 }}
               />
-            ))}
+            )}
+            <div style={{ position: 'relative', zIndex: 10 }}>
+              <div style={{ position: 'sticky', top: 0, zIndex: 20, backgroundColor: 'white' }}>
+                <Header />
+              </div>
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/life-so-far" element={<LifeSoFar />} />
+                <Route path="/words-of-encouragement" element={<WordsOfEncouragement />} />
+                <Route path="/game" element={<Game />} />
+              </Routes>
+            </div>
           </div>
         </ParallaxProvider>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/life-so-far" element={<LifeSoFar />} />
-          <Route path="/words-of-encouragement" element={<WordsOfEncouragement />} />
-          <Route path="/game" element={<Game />} />
-        </Routes>
       </div>
     </Router>
   );

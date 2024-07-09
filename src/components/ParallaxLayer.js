@@ -19,8 +19,8 @@ const ParallaxLayer = ({ src, speed, style }) => {
         src={src}
         alt=""
         style={{
-          width: `${size.width}px`,
-          height: `${size.height}px`,
+          width: '100%', // Ensure the image fills the width of the container
+          height: 'auto', // Maintain aspect ratio
         }}
       />
     </Parallax>
