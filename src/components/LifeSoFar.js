@@ -9,7 +9,7 @@ const LifeSoFar = () => (
     <h2>Life so far</h2>
     <Row>
       <Col>
-        <DisplayFiles />
+        <DisplayFiles folder="life-so-far" />
         <FileUpload />
       </Col>
     </Row>

@@ -2,37 +2,48 @@
 import React, { useEffect, useState } from 'react';
 import { storage } from '../firebase';
 import { ref, listAll, getDownloadURL } from "firebase/storage";
-import { Container, Row, Col, Image } from 'react-bootstrap';
+import Masonry from 'react-masonry-css';
+import { Container } from 'react-bootstrap';
 
-const DisplayFiles = () => {
+const DisplayFiles = ({ folder }) => {
     const [files, setFiles] = useState([]);
 
     useEffect(() => {
         const fetchFiles = async () => {
-            const storageRef = ref(storage, 'files/');
+            const storageRef = ref(storage, folder);
             const fileList = await listAll(storageRef);
             const urls = await Promise.all(fileList.items.map(item => getDownloadURL(item)));
             setFiles(urls);
         };
 
         fetchFiles();
-    }, []);
+    }, [folder]);
+
+    const breakpointColumnsObj = {
+        default: 3,
+        1100: 2,
+        700: 1
+    };
 
     return (
         <Container>
-            <Row>
+            <Masonry
+                breakpointCols={breakpointColumnsObj}
+                className="my-masonry-grid"
+                columnClassName="my-masonry-grid_column"
+            >
                 {files.map((url, index) => (
-                    <Col key={index} md={4}>
+                    <div key={index} style={{ marginBottom: '10px' }}>
                         {url.match(/\.(jpeg|jpg|gif|png)$/) ? (
-                            <Image src={url} fluid />
+                            <img src={url} alt={`file-${index}`} style={{ width: '100%', display: 'block' }} />
                         ) : (
-                            <video width="320" height="240" controls>
+                            <video width="100%" controls>
                                 <source src={url} type="video/mp4" />
                             </video>
                         )}
-                    </Col>
+                    </div>
                 ))}
-            </Row>
+            </Masonry>
         </Container>
     );
 };
