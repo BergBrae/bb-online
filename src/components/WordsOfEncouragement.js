@@ -16,7 +16,7 @@ const WordsOfEncouragement = () => (
     </Row>
     <Row>
       <Col>
-        <FileUpload folder="words-of-encouragement" />
+        <FileUpload folder="words-of-encouragement" placeholder='video' />
       </Col>
     </Row>
   </Container>

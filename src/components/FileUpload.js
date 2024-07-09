@@ -2,19 +2,28 @@
 import React, { useState } from 'react';
 import { storage } from '../firebase';
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
-import { Button, ProgressBar } from 'react-bootstrap';
+import { Button, ProgressBar, Alert } from 'react-bootstrap';
+import { FaUpload } from 'react-icons/fa';
 
-const FileUpload = (props) => {
-  const {folder} = props;
+const FileUpload = ({ folder, placeholder }) => {
   const [file, setFile] = useState(null);
   const [progress, setProgress] = useState(0);
   const [url, setUrl] = useState('');
+  const [success, setSuccess] = useState(false);
+  const [error, setError] = useState('');
 
   const handleFileChange = (e) => {
-    setFile(e.target.files[0]);
+    const selectedFile = e.target.files[0];
+    if (selectedFile) {
+      setFile(selectedFile);
+      setSuccess(false);
+      setError('');
+      setProgress(0);
+      handleUpload(selectedFile);
+    }
   };
 
-  const handleUpload = () => {
+  const handleUpload = (file) => {
     if (file) {
       const storageRef = ref(storage, `${folder}/${file.name}`);
       const uploadTask = uploadBytesResumable(storageRef, file);
@@ -26,10 +35,12 @@ const FileUpload = (props) => {
         },
         (error) => {
           console.error("Error uploading file:", error);
+          setError('Error uploading file');
         },
         () => {
           getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
             setUrl(downloadURL);
+            setSuccess(true);
           });
         }
       );
@@ -38,9 +49,26 @@ const FileUpload = (props) => {
 
   return (
     <div>
-      <input type="file" onChange={handleFileChange} />
-      <Button onClick={handleUpload}>Upload</Button>
-      {progress > 0 && <ProgressBar now={progress} label={`${Math.round(progress)}%`} />}
+      <input type="file" id="file-upload" onChange={handleFileChange} style={{ display: 'none' }} />
+      <Button 
+        className="floating-button" 
+        onClick={() => document.getElementById('file-upload').click()}
+      >
+        <FaUpload /> Upload your {placeholder} to share with Brenda
+      </Button>
+      {progress > 0 && progress < 100 && (
+        <ProgressBar now={progress} label={`${Math.round(progress)}%`} style={{ marginTop: '10px' }} />
+      )}
+      {success && (
+        <Alert variant="success" style={{ marginTop: '10px' }}>
+          File uploaded successfully! <a href={url} target="_blank" rel="noopener noreferrer">View file</a>
+        </Alert>
+      )}
+      {error && (
+        <Alert variant="danger" style={{ marginTop: '10px' }}>
+          {error}
+        </Alert>
+      )}
     </div>
   );
 };
