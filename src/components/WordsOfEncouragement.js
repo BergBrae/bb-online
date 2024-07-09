@@ -5,11 +5,13 @@ import VideoCarousel from './VideoCarousel';
 import FileUpload from './FileUpload';
 
 const WordsOfEncouragement = () => (
-  <Container>
+  <Container className="words-of-encouragement-container">
     <h2>Words of encouragement</h2>
-    <Row>
+    <Row className="justify-content-center align-items-center flex-grow-1">
       <Col>
-        <VideoCarousel folder="words-of-encouragement" />
+        <div className="carousel-wrapper">
+          <VideoCarousel folder="words-of-encouragement" />
+        </div>
       </Col>
     </Row>
     <Row>

@@ -51,9 +51,6 @@ const VideoCarousel = ({ folder }) => {
                     >
                         <source src={url} type="video/mp4" />
                     </video>
-                    <Carousel.Caption>
-                        <h3>Video {index + 1}</h3>
-                    </Carousel.Caption>
                 </Carousel.Item>
             ))}
         </Carousel>
