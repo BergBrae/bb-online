@@ -47,25 +47,24 @@
  /* FileUpload.css */
 
 .floating-button {
-   position: fixed;
-   bottom: 20px;
-   right: 20px;
-   background-color: #007bff;
-   color: white;
-   border-radius: 50px;
-   padding: 15px 20px;
-   font-size: 14px;
-   z-index: 1000;
-   display: flex;
-   align-items: center;
-   justify-content: center;
- }
- 
- .floating-button:hover {
-   background-color: #0056b3;
- }
- 
- .floating-button svg {
-   margin-right: 10px;
- }
- 
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: rgb(116, 177, 214);
+  color: rgb(0, 0, 0);
+  border-radius: 50px;
+  padding: 15px 20px;
+  font-size: 16px;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.floating-button:hover {
+  background-color: rgb(73, 110, 133);
+}
+
+.floating-button svg {
+  margin-right: 10px;
+}
