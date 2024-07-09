@@ -2,6 +2,7 @@
 import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import VideoCarousel from './VideoCarousel';
+import FileUpload from './FileUpload';
 
 const WordsOfEncouragement = () => (
   <Container>
@@ -9,6 +10,11 @@ const WordsOfEncouragement = () => (
     <Row>
       <Col>
         <VideoCarousel folder="words-of-encouragement" />
+      </Col>
+    </Row>
+    <Row>
+      <Col>
+        <FileUpload folder="words-of-encouragement" />
       </Col>
     </Row>
   </Container>

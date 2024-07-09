@@ -10,7 +10,7 @@ const LifeSoFar = () => (
     <Row>
       <Col>
         <DisplayFiles folder="life-so-far" />
-        <FileUpload />
+        <FileUpload folder="life-so-far"/>
       </Col>
     </Row>
   </Container>

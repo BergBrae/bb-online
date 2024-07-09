@@ -4,7 +4,8 @@ import { storage } from '../firebase';
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { Button, ProgressBar } from 'react-bootstrap';
 
-const FileUpload = () => {
+const FileUpload = (props) => {
+  const {folder} = props;
   const [file, setFile] = useState(null);
   const [progress, setProgress] = useState(0);
   const [url, setUrl] = useState('');
@@ -15,7 +16,7 @@ const FileUpload = () => {
 
   const handleUpload = () => {
     if (file) {
-      const storageRef = ref(storage, `files/${file.name}`);
+      const storageRef = ref(storage, `${folder}/${file.name}`);
       const uploadTask = uploadBytesResumable(storageRef, file);
 
       uploadTask.on('state_changed',
@@ -29,7 +30,6 @@ const FileUpload = () => {
         () => {
           getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
             setUrl(downloadURL);
-            console.log('File available at', downloadURL);
           });
         }
       );
@@ -41,7 +41,6 @@ const FileUpload = () => {
       <input type="file" onChange={handleFileChange} />
       <Button onClick={handleUpload}>Upload</Button>
       {progress > 0 && <ProgressBar now={progress} label={`${Math.round(progress)}%`} />}
-      {url && <div>File URL: <a href={url} target="_blank" rel="noopener noreferrer">{url}</a></div>}
     </div>
   );
 };
