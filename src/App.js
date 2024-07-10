@@ -4,6 +4,7 @@ import Header from './components/Header';
 import Home from './components/Home';
 import LifeSoFar from './components/LifeSoFar';
 import WordsOfEncouragement from './components/WordsOfEncouragement';
+import { Analytics } from "@vercel/analytics/react"
 
 function App() {
   const [backgroundImage, setBackgroundImage] = useState(null);
@@ -19,6 +20,7 @@ function App() {
       <div style={{ backgroundImage: `url(${backgroundImage})`, backgroundSize: 'cover', backgroundPosition: 'center', backgroundRepeat: 'no-repeat', position: 'fixed', width: '100%', height: '100%' }}>
         <div style={{ position: 'relative', zIndex: 10, height: '100vh', overflowY: 'auto' }}>
           <div style={{ position: 'sticky', top: 0, zIndex: 20, backgroundColor: 'white' }}>
+            <Analytics />
             <Header />
           </div>
           <Routes>
