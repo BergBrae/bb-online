@@ -48,7 +48,7 @@ const DisplayFiles = ({ folder }) => {
                         {url.match(/\.(jpeg|jpg|gif|png)/) ? (
                             <img src={url} alt={`file-${index}`} style={{ width: '100%', display: 'block' }} />
                         ) : (
-                            <video width="100%" controls>
+                            <video width="100%" loop autoPlay muted>
                                 <source src={url} type="video/mp4" />
                             </video>
                         )}
@@ -57,9 +57,6 @@ const DisplayFiles = ({ folder }) => {
             </Masonry>
 
             <Modal show={showModal} onHide={handleClose} size="lg" centered>
-                {/* <Modal.Header closeButton>
-                    <Modal.Title>File Preview</Modal.Title>
-                </Modal.Header> */}
                 <Modal.Body>
                     {selectedFile && selectedFile.match(/\.(jpeg|jpg|gif|png)/) ? (
                         <img src={selectedFile} alt="Selected file" style={{ width: '100%' }} />
