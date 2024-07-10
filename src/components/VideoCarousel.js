@@ -44,7 +44,6 @@ const VideoCarousel = ({ folder }) => {
                 <Carousel.Item key={index}>
                     <video
                         className="d-block w-100"
-                        controls
                         onPlay={handlePlay}
                         onPause={handlePause}
                         style={{ maxHeight: '500px' }}

@@ -24,7 +24,7 @@ function App() {
             {backgroundImage && (
               <ParallaxLayer
                 src={backgroundImage}
-                speed={-30} // Negative value to scroll slower
+                speed={-10} // Negative value to scroll slower
                 style={{
                   position: 'absolute',
                   width: '100%',
