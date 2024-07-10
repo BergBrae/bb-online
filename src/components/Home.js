@@ -6,7 +6,7 @@ import familyPicture from '../assets/bradley_family.png'
 const Home = () => (
     <Container>
         <Row>
-            <Col md={{ span: 10, offset: 1 }} className='parent-container'>
+            <Col md={{ span: 10, offset: 1 }} className='parent-container spaced'>
                 <h2>Happy 60th Brenda!</h2>
                 <img className='round' src={familyPicture} alt="Family" />
                 <p>Happy 60th Birthday! Today, we celebrate not just your birthday, but the incredible woman who has shaped our lives with boundless love and unwavering strength.<br/><br/>
