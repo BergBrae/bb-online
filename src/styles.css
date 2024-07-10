@@ -97,3 +97,7 @@ img {
 .round {
   border-radius: 10px;
 }
+
+.spaced {
+  margin-bottom: 200px;
+}
