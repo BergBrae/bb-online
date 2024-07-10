@@ -2,13 +2,14 @@
 
 
 * {
-   text-align: center;
-   /* girly font */
-   font-family: 'Dancing Script', cursive;
-   color: black;
-   /* make images fit to width */
-   max-width: 100%;
+  text-align: center;
+  /* girly font */
+  font-family: 'Dancing Script', 'Pacifico', 'Great Vibes', 'Satisfy', 'Cookie', 'Allura', cursive;
+  color: black;
+  /* make images fit to width */
+  max-width: 100%;
 }
+
 
 .my-masonry-grid {
    display: flex;
