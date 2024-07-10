@@ -101,3 +101,19 @@ img {
 .spaced {
   margin-bottom: 200px;
 }
+
+/* Add this CSS to styles.css */
+
+.video-carousel video {
+  width: 100%;
+  height: auto;
+  max-height: 80vh;
+  object-fit: cover;
+}
+
+.carousel-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
+}

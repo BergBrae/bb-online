@@ -1,5 +1,5 @@
 // src/components/VideoCarousel.js
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Carousel } from 'react-bootstrap';
 import { storage } from '../firebase';
 import { ref, listAll, getDownloadURL } from "firebase/storage";
@@ -39,6 +39,7 @@ const VideoCarousel = ({ folder }) => {
             activeIndex={activeIndex}
             onSelect={handleSelect}
             style={{ width: '80%', height: 'auto', margin: 'auto' }}
+            className="video-carousel"
         >
             {videos.map((url, index) => (
                 <Carousel.Item key={index}>
@@ -46,6 +47,8 @@ const VideoCarousel = ({ folder }) => {
                         className="d-block w-100"
                         onPlay={handlePlay}
                         onPause={handlePause}
+                        controls
+                        poster={url + "#t=0.5"}
                         style={{ maxHeight: '500px' }}
                     >
                         <source src={url} type="video/mp4" />
