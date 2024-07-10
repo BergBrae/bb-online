@@ -9,6 +9,7 @@ const DisplayFiles = ({ folder }) => {
     const [files, setFiles] = useState([]);
     const [showModal, setShowModal] = useState(false);
     const [selectedFile, setSelectedFile] = useState(null);
+    const [isImage, setIsImage] = useState(true);
 
     useEffect(() => {
         const fetchFiles = async () => {
@@ -23,6 +24,7 @@ const DisplayFiles = ({ folder }) => {
 
     const handleShow = (file) => {
         setSelectedFile(file);
+        setIsImage(file.match(/\.(jpeg|jpg|gif|png)/) ? true : false);
         setShowModal(true);
     };
 
@@ -56,15 +58,17 @@ const DisplayFiles = ({ folder }) => {
                 ))}
             </Masonry>
 
-            <Modal show={showModal} onHide={handleClose} size="lg" centered>
-                <Modal.Body>
-                    {selectedFile && selectedFile.match(/\.(jpeg|jpg|gif|png)/) ? (
-                        <img src={selectedFile} alt="Selected file" style={{ width: '100%' }} />
-                    ) : (
-                        <video width="100%" controls>
-                            <source src={selectedFile} type="video/mp4" />
-                        </video>
-                    )}
+            <Modal show={showModal} onHide={handleClose} centered>
+                <Modal.Body style={{ padding: '0', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                    <div style={{ width: isImage ? 'auto' : '100%', height: 'auto', maxHeight: '80vh', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                        {selectedFile && isImage ? (
+                            <img src={selectedFile} alt="Selected file" style={{ maxWidth: '100%', maxHeight: '80vh', objectFit: 'contain' }} />
+                        ) : (
+                            <video style={{ maxWidth: '100%', maxHeight: '80vh', objectFit: 'contain' }} controls>
+                                <source src={selectedFile} type="video/mp4" />
+                            </video>
+                        )}
+                    </div>
                 </Modal.Body>
             </Modal>
         </Container>
