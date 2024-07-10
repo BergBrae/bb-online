@@ -50,7 +50,7 @@ const DisplayFiles = ({ folder }) => {
                         {url.match(/\.(jpeg|jpg|gif|png)/) ? (
                             <img className='round'  src={url} alt={`file-${index}`} style={{ width: '100%', display: 'block' }} />
                         ) : (
-                            <video className='round' width="100%" loop autoPlay muted>
+                            <video className='round' width="100%" loop autoPlay muted playsInline>
                                 <source src={url} type="video/mp4" />
                             </video>
                         )}

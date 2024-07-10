@@ -8,7 +8,7 @@ const Home = () => (
     <Row>
       <Col className='parent-container'>
         <h2>Happy 60th Brenda!</h2>
-        <img src={familyPicture} alt="Family" />
+        <img className='round' src={familyPicture} alt="Family" />
       </Col>
     </Row>
   </Container>
