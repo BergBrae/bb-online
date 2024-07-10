@@ -16,13 +16,13 @@ const Header = () => {
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="mr-auto" onSelect={handleSelect}>
           <LinkContainer to="/" onClick={handleSelect}>
-            <Nav.Link>Home</Nav.Link>
+            <Nav.Link className='ms-3'>Home</Nav.Link>
           </LinkContainer>
           <LinkContainer to="/life-so-far" onClick={handleSelect}>
-            <Nav.Link>Life So Far</Nav.Link>
+            <Nav.Link className='ms-3'>Life So Far</Nav.Link>
           </LinkContainer>
           <LinkContainer to="/words-of-encouragement" onClick={handleSelect}>
-            <Nav.Link>Words of Encouragement</Nav.Link>
+            <Nav.Link className='ms-3'>Words of Encouragement</Nav.Link>
           </LinkContainer>
         </Nav>
       </Navbar.Collapse>
