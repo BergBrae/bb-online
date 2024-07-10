@@ -6,7 +6,7 @@ import FileUpload from './FileUpload';
 
 const WordsOfEncouragement = () => (
   <Container className="words-of-encouragement-container">
-    <h2>Words of encouragement</h2>
+    <h2>Words of Encouragement</h2>
     <Row className="justify-content-center align-items-center flex-grow-1">
       <Col>
         <div className="carousel-wrapper">

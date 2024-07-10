@@ -68,3 +68,15 @@
 .floating-button svg {
   margin-right: 10px;
 }
+
+/* Titles. h2 */
+h2 {
+  font-size: 7rem;  /* Adjust the size as needed */
+  font-weight: bold;
+  margin: 20px 0;
+  text-align: center;  /* Optional: center-align the text */
+  background-color: rgba(255, 255, 255, 0.5);
+  padding: 20px;
+  border-radius: 300px; /* Optional: rounded corners */
+  backdrop-filter: blur(5px);
+}

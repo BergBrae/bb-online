@@ -7,7 +7,7 @@ const Home = () => (
     <Container>
         <Row>
             <Col>
-                <h1>Happy 60th Brenda!</h1>
+                <h2>Happy 60th Brenda!</h2>
                 <img src={familyPicture} alt="Family" />
             </Col>
         </Row>
