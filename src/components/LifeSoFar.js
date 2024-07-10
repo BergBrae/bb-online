@@ -5,12 +5,12 @@ import DisplayFiles from './DisplayFiles';
 import FileUpload from './FileUpload';
 
 const LifeSoFar = () => (
-  <Container>
-    <h2>Life so far</h2>
+  <Container >
     <Row>
-      <Col>
+      <Col className='parent-container'>
+        <h2>Life so far</h2>
         <DisplayFiles folder="life-so-far" />
-        <FileUpload folder="life-so-far" placeholder='memories'/>
+        <FileUpload folder="life-so-far" placeholder='memories' />
       </Col>
     </Row>
   </Container>

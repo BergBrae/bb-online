@@ -6,7 +6,7 @@ import familyPicture from '../assets/bradley_family.png'
 const Home = () => (
     <Container>
         <Row>
-            <Col>
+            <Col className='parent-container'>
                 <h2>Happy 60th Brenda!</h2>
                 <img src={familyPicture} alt="Family" />
             </Col>

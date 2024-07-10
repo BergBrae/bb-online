@@ -25,13 +25,6 @@
    margin-bottom: 16px;
 }
 
-
-/* WordsOfEncouragement.css */
-
-.words-of-encouragement-container {
-   display: flex;
-   flex-direction: column;
- }
  
  .carousel-wrapper {
    display: flex;
@@ -70,13 +63,16 @@
 }
 
 /* Titles. h2 */
+/* Titles. h2 */
 h2 {
-  font-size: 7rem;  /* Adjust the size as needed */
+  font-size: 7vh;  /* Adjust the size as needed */
   font-weight: bold;
   margin: 20px 0;
   text-align: center;  /* Optional: center-align the text */
   background-color: rgba(255, 255, 255, 0.5);
-  padding: 20px;
-  border-radius: 300px; /* Optional: rounded corners */
+  padding: 15px 30px;  /* Adjust padding for better fit */
+  border-radius: 50px; /* Adjust rounded corners */
   backdrop-filter: blur(5px);
+  display: inline-block;  /* Make the element fit tightly around its content */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);  /* Optional: add subtle shadow for better visibility */
 }
