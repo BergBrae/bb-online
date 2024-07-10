@@ -16,8 +16,8 @@ function App() {
 
   return (
     <Router>
-      <div style={{ backgroundImage: `url(${backgroundImage})`, backgroundSize: 'cover', backgroundPosition: 'center', backgroundAttachment: 'fixed', minHeight: '100vh' }}>
-        <div style={{ position: 'relative', zIndex: 10 }}>
+      <div style={{ backgroundImage: `url(${backgroundImage})`, backgroundSize: 'cover', backgroundPosition: 'center', backgroundRepeat: 'no-repeat', position: 'fixed', width: '100%', height: '100%' }}>
+        <div style={{ position: 'relative', zIndex: 10, height: '100vh', overflowY: 'auto' }}>
           <div style={{ position: 'sticky', top: 0, zIndex: 20, backgroundColor: 'white' }}>
             <Header />
           </div>
