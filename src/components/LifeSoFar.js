@@ -5,7 +5,7 @@ import DisplayFiles from './DisplayFiles';
 import FileUpload from './FileUpload';
 
 const LifeSoFar = () => (
-  <Container >
+  <Container>
     <Row>
       <Col className='parent-container'>
         <h2>Life so far</h2>

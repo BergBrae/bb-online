@@ -1,43 +1,35 @@
 /* src/styles.css */
 
-
 * {
   text-align: center;
-  /* girly font */
   font-family: 'Dancing Script', 'Pacifico', 'Great Vibes', 'Satisfy', 'Cookie', 'Allura', cursive;
   color: black;
-  /* make images fit to width */
   max-width: 100%;
 }
 
-
 .my-masonry-grid {
-   display: flex;
-   width: 100%;
+  display: flex;
+  width: 100%;
 }
 
 .my-masonry-grid_column {
-   background-clip: padding-box;
+  background-clip: padding-box;
 }
 
-/* Style to add spacing between the items */
 .my-masonry-grid_column>div {
-   margin-bottom: 16px;
+  margin-bottom: 16px;
 }
 
- 
- .carousel-wrapper {
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   height: 80vh; /* Adjust this value as needed */
- }
- 
- .video-carousel {
-   max-width: 100%; /* Ensure the carousel does not overflow */
- }
- 
- /* FileUpload.css */
+.carousel-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+}
+
+.video-carousel {
+  max-width: 100%;
+}
 
 .floating-button {
   position: fixed;
@@ -63,16 +55,40 @@
 }
 
 /* Titles. h2 */
-/* Titles. h2 */
 h2 {
-  font-size: 7vh;  /* Adjust the size as needed */
+  font-size: 7vh;
   font-weight: bold;
   margin: 20px 0;
-  text-align: center;  /* Optional: center-align the text */
+  text-align: center;
   background-color: rgba(255, 255, 255, 0.5);
-  padding: 15px 30px;  /* Adjust padding for better fit */
-  border-radius: 50px; /* Adjust rounded corners */
+  padding: 15px 30px;
+  border-radius: 50px;
   backdrop-filter: blur(5px);
-  display: inline-block;  /* Make the element fit tightly around its content */
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);  /* Optional: add subtle shadow for better visibility */
+  display: inline-block;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 768px) {
+  h2 {
+    font-size: 5vh; /* Smaller font size for mobile devices */
+    padding: 10px 20px;
+  }
+
+  .carousel-wrapper {
+    height: 50vh; /* Adjust carousel height for smaller screens */
+  }
+}
+
+.parent-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
+  max-height: 60vh; /* Ensure the image does not take too much vertical space */
 }
