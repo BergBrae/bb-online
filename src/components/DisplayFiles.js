@@ -46,11 +46,11 @@ const DisplayFiles = ({ folder }) => {
                 columnClassName="my-masonry-grid_column"
             >
                 {files.map((url, index) => (
-                    <div key={index} style={{ margin: '10px' }} onClick={() => handleShow(url)}>
+                    <div className='image'  key={index} style={{ margin: '10px' }} onClick={() => handleShow(url)}>
                         {url.match(/\.(jpeg|jpg|gif|png)/) ? (
-                            <img src={url} alt={`file-${index}`} style={{ width: '100%', display: 'block' }} />
+                            <img className='round'  src={url} alt={`file-${index}`} style={{ width: '100%', display: 'block' }} />
                         ) : (
-                            <video width="100%" loop autoPlay muted>
+                            <video className='round' width="100%" loop autoPlay muted>
                                 <source src={url} type="video/mp4" />
                             </video>
                         )}

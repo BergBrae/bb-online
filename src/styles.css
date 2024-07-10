@@ -92,3 +92,7 @@ img {
   object-fit: cover;
   max-height: 60vh; /* Ensure the image does not take too much vertical space */
 }
+
+.round {
+  border-radius: 10px;
+}
