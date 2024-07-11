@@ -2,11 +2,12 @@ import React, { useEffect, useState } from 'react';
 import { Carousel, Spinner } from 'react-bootstrap';
 import { storage } from '../firebase';
 import { ref, listAll, getDownloadURL } from "firebase/storage";
+import { FaPlayCircle, FaPauseCircle } from 'react-icons/fa';
 
 const VideoCarousel = ({ folder }) => {
     const [videos, setVideos] = useState([]);
     const [activeIndex, setActiveIndex] = useState(0);
-    const [isPlaying, setIsPlaying] = useState(false);
+    const [playingIndex, setPlayingIndex] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
@@ -22,17 +23,25 @@ const VideoCarousel = ({ folder }) => {
     }, [folder]);
 
     const handleSelect = (selectedIndex, e) => {
-        if (!isPlaying) {
+        if (playingIndex === null) {
             setActiveIndex(selectedIndex);
         }
     };
 
-    const handlePlay = () => {
-        setIsPlaying(true);
+    const togglePlayPause = (e, index) => {
+        e.stopPropagation();
+        const video = document.getElementById(`video-${index}`);
+        if (video.paused) {
+            video.play();
+            setPlayingIndex(index);
+        } else {
+            video.pause();
+            setPlayingIndex(null);
+        }
     };
 
-    const handlePause = () => {
-        setIsPlaying(false);
+    const handleVideoEnded = () => {
+        setPlayingIndex(null);
     };
 
     if (isLoading) {
@@ -53,17 +62,32 @@ const VideoCarousel = ({ folder }) => {
             className="video-carousel"
         >
             {videos.map((url, index) => (
-                <Carousel.Item key={index}>
+                <Carousel.Item key={index} style={{ position: 'relative' }}>
                     <video
+                        id={`video-${index}`}
                         className="d-block w-100"
-                        onPlay={handlePlay}
-                        onPause={handlePause}
-                        controls
                         preload="auto"
+                        onEnded={handleVideoEnded}
                         style={{ maxHeight: '500px' }}
                     >
                         <source src={url} type="video/mp4" />
                     </video>
+                    <div
+                        className="play-pause-overlay"
+                        onClick={(e) => togglePlayPause(e, index)}
+                        style={{
+                            position: 'absolute',
+                            top: '50%',
+                            left: '50%',
+                            transform: 'translate(-50%, -50%)',
+                            color: 'white',
+                            fontSize: '3rem',
+                            cursor: 'pointer',
+                            pointerEvents: 'auto',
+                        }}
+                    >
+                        {playingIndex === index ? <FaPauseCircle /> : <FaPlayCircle />}
+                    </div>
                 </Carousel.Item>
             ))}
         </Carousel>
