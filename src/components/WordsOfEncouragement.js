@@ -5,7 +5,7 @@ import VideoCarousel from './VideoCarousel';
 import FileUpload from './FileUpload';
 
 const WordsOfEncouragement = () => (
-  <Container className="words-of-encouragement-container parent-container">
+  <Container className="words-of-encouragement-container parent-container spaced">
     <h2>Words of Encouragement</h2>
     <Row className="justify-content-center align-items-center flex-grow-1">
       <Col>
