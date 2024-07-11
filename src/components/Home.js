@@ -1,7 +1,7 @@
 // src/components/Home.js
 import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
-import familyPicture from '../assets/bradley_family.png'
+import familyPicture from '../assets/bradley_family.jpeg'
 
 const Home = () => (
     <Container>
