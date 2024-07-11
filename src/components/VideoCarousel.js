@@ -1,6 +1,5 @@
-// src/components/VideoCarousel.js
 import React, { useEffect, useState } from 'react';
-import { Carousel } from 'react-bootstrap';
+import { Carousel, Spinner } from 'react-bootstrap';
 import { storage } from '../firebase';
 import { ref, listAll, getDownloadURL } from "firebase/storage";
 
@@ -8,6 +7,7 @@ const VideoCarousel = ({ folder }) => {
     const [videos, setVideos] = useState([]);
     const [activeIndex, setActiveIndex] = useState(0);
     const [isPlaying, setIsPlaying] = useState(false);
+    const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
         const fetchVideos = async () => {
@@ -15,6 +15,7 @@ const VideoCarousel = ({ folder }) => {
             const fileList = await listAll(storageRef);
             const urls = await Promise.all(fileList.items.map(item => getDownloadURL(item)));
             setVideos(urls);
+            setIsLoading(false);
         };
 
         fetchVideos();
@@ -34,6 +35,16 @@ const VideoCarousel = ({ folder }) => {
         setIsPlaying(false);
     };
 
+    if (isLoading) {
+        return (
+            <div style={{ textAlign: 'center', marginTop: '50px' }}>
+                <Spinner animation="border" role="status">
+                    <span className="sr-only">Loading...</span>
+                </Spinner>
+            </div>
+        );
+    }
+
     return (
         <Carousel
             activeIndex={activeIndex}
@@ -48,7 +59,7 @@ const VideoCarousel = ({ folder }) => {
                         onPlay={handlePlay}
                         onPause={handlePause}
                         controls
-                        poster={url + "#t=0.5"}
+                        preload="auto"
                         style={{ maxHeight: '500px' }}
                     >
                         <source src={url} type="video/mp4" />
