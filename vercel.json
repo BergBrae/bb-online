@@ -1,0 +1,9 @@
+{
+    "redirects": [
+        {
+            "source": "/words-of-encouragement",
+            "destination": "/birthday-wishes",
+            "permanent": true
+        }
+    ]
+}
