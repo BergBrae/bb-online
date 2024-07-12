@@ -1,12 +1,12 @@
-// src/components/WordsOfEncouragement.js
+// src/components/BirthdayWishes.js
 import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import VideoCarousel from './VideoCarousel';
 import FileUpload from './FileUpload';
 
-const WordsOfEncouragement = () => (
+const BirthdayWishes = () => (
   <Container className="words-of-encouragement-container parent-container spaced">
-    <h2>Words of Encouragement</h2>
+    <h2>Birthday Wishes</h2>
     <Row className="justify-content-center align-items-center flex-grow-1">
       <Col>
         <div className="carousel-wrapper">
@@ -22,4 +22,4 @@ const WordsOfEncouragement = () => (
   </Container>
 );
 
-export default WordsOfEncouragement;
+export default BirthdayWishes;

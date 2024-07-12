@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Header from './components/Header';
 import Home from './components/Home';
 import LifeSoFar from './components/LifeSoFar';
-import WordsOfEncouragement from './components/WordsOfEncouragement';
+import BirthdayWishes from './components/BirthdayWishes';
 import { Analytics } from "@vercel/analytics/react"
 
 function App() {
@@ -26,7 +26,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/life-so-far" element={<LifeSoFar />} />
-            <Route path="/words-of-encouragement" element={<WordsOfEncouragement />} />
+            <Route path="/birthday-wishes" element={<BirthdayWishes />} />
           </Routes>
         </div>
       </div>

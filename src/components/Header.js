@@ -21,8 +21,8 @@ const Header = () => {
           <LinkContainer to="/life-so-far" onClick={handleSelect}>
             <Nav.Link className='ms-3'>Life So Far</Nav.Link>
           </LinkContainer>
-          <LinkContainer to="/words-of-encouragement" onClick={handleSelect}>
-            <Nav.Link className='ms-3'>Words of Encouragement</Nav.Link>
+          <LinkContainer to="/birthday-wishes" onClick={handleSelect}>
+            <Nav.Link className='ms-3'>Birthday Wishes</Nav.Link>
           </LinkContainer>
         </Nav>
       </Navbar.Collapse>
