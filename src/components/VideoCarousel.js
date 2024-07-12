@@ -74,7 +74,7 @@ const VideoCarousel = ({ folder }) => {
                         onEnded={handleVideoEnded}
                         style={{ maxHeight: '500px', width: '100%' }}
                     >
-                        <source src={url} type="video/mp4" />
+                        <source src={url} type="video/quicktime" />
                     </video>
                     {playingIndex !== index && (
                         <div
