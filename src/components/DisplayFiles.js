@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { storage } from '../firebase';
-import { ref, listAll, getDownloadURL } from "firebase/storage";
+import { ref, listAll, getDownloadURL, getMetadata } from "firebase/storage";
 import Masonry from 'react-masonry-css';
 import { Container, Modal } from 'react-bootstrap';
 import '../App.css';  // Ensure this imports the CSS styles
@@ -15,8 +15,17 @@ const DisplayFiles = ({ folder }) => {
         const fetchFiles = async () => {
             const storageRef = ref(storage, folder);
             const fileList = await listAll(storageRef);
-            const urls = await Promise.all(fileList.items.map(item => getDownloadURL(item)));
-            setFiles(urls);
+
+            const fileDataPromises = fileList.items.map(async item => {
+                const url = await getDownloadURL(item);
+                const metadata = await getMetadata(item);
+                return { url, timeCreated: metadata.timeCreated };
+            });
+
+            const fileData = await Promise.all(fileDataPromises);
+            fileData.sort((a, b) => new Date(b.timeCreated) - new Date(a.timeCreated));
+
+            setFiles(fileData.map(file => file.url));
         };
 
         fetchFiles();
